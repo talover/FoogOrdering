@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Settings</title>
+    <style>
+        /* Base styles from previous style guide */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.5;
+            background-color: #F5F7F9;
+            color: #1A2024;
+        }
+
+        /* Admin Header and Tabs */
+        .admin-header {
+            background-color: #FFFFFF;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .tab {
+            padding: 1rem 1.5rem;
+            font-size: 0.95rem;
+            color: #4A5056;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            color: #2E7D32;
+            border-bottom-color: #2E7D32;
+        }
+
+        .tab:hover {
+            color: #2E7D32;
+        }
+
+        /* Content Area */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .settings-card {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #1A2024;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2E7D32;
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            background-color: #FFFFFF;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234A5056' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+        }
+
+        .help-text {
+            font-size: 0.8rem;
+            color: #4A5056;
+            margin-top: 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #2E7D32;
+            color: #FFFFFF;
+        }
+
+        .btn-primary:hover {
+            background-color: #1B5E20;
+        }
+
+        .form-actions {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #E0E0E0;
+        }
+    </style>
+</head>
+<body>
+    <header class="admin-header">
+        <nav class="tabs">
+            <a href="#settings" class="tab active">Settings</a>
+            <a href="#demo-import" class="tab">Demo Import</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="settings-card">
+            <h1 class="main-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">Settings</h1>
+            
+            <form>
+
+                <div class="form-group">
+                    <label class="form-label">Menu Items Slug</label>
+                    <input type="text" class="form-input" placeholder="Enter menu items slug">
+                    <p class="help-text">Define the URL slug for menu items section</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Add-ons Slug</label>
+                    <input type="text" class="form-input" placeholder="Enter add-ons slug">
+                    <p class="help-text">Define the URL slug for add-ons section</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-input" rows="4" placeholder="Enter description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Default Price</label>
+                    <input type="number" class="form-input" placeholder="0.00">
+                    <p class="help-text">Set the default price for new items</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Select Location</label>
+                    <select class="form-select">
+                        <option value="">Choose a location...</option>
+                        <option value="location1">Location 1</option>
+                        <option value="location2">Location 2</option>
+                        <option value="location3">Location 3</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Settings</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
