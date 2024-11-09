@@ -25,8 +25,6 @@ const DefaultLayout = () => {
 		skip: ! token
 	} )
 
-	console.log(data, isLoading, isSuccess, isError);
-
 	const getUserData = () => {
 
 		if( ! token ) return
