@@ -1,0 +1,25 @@
+.fo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid;
+  line-height: 1;
+
+  &_primary {
+    background-color: #2E7D32;
+    border-color: #2E7D32;
+    color: #FFFFFF;
+
+    &:hover {
+      background-color: #1B5E20;
+      border-color: #1B5E20;
+    }
+  }
+}

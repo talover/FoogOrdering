@@ -1,0 +1,17 @@
+.fo-description {
+  font-size: 0.95rem;
+  color: #4A5056;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  line-height: 1.6;
+
+  p {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

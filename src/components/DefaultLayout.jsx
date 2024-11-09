@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom"
 import { Navigation } from "@settings/components/Navigation"
-import NavigationOld from "@settings/components/NavigationOld"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useGetSettingsQuery } from "@settings/services/Settings"
@@ -9,7 +8,7 @@ import FlashMessages from "./FlashMessages"
 
 const navigationData = [
 	{ name: 'Settings', path: '/', label: 'Settings' },
-	{ name: 'Import', path: '/import', label: 'Import' },
+	{ name: 'Import', path: '/import', label: 'Demo Import' },
   ];
 
 const DefaultLayout = () => {
@@ -50,8 +49,7 @@ const DefaultLayout = () => {
 	return ( ! isLoading &&
 		<>
 			<Navigation navigation={navigationData} />
-			<NavigationOld />
-
+	
 			<main>
 				<div>
 
