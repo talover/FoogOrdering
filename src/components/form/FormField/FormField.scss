@@ -1,0 +1,68 @@
+.fo-field {
+  $self: &;
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  &__label {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #E0E0E0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    outline: transparent;
+
+    &:focus {
+      border-color: #2E7D32;
+    }
+  }
+
+  &__select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #E0E0E0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234A5056' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    outline: transparent;
+
+    &:focus {
+      border-color: #2E7D32 !important;
+      outline: none; 
+    }
+  }
+
+  &__desc {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+  }
+
+  &_error {
+    #{$self}__input,
+    #{$self}__select,
+    #{$self}__textarea {
+      border-color: #e53e3e;
+    }
+  
+    #{$self}__error {
+      color: #e53e3e;
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+  }
+}
