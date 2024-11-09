@@ -4,8 +4,8 @@ import { createHashRouter } from 'react-router-dom';
 import DefaultLayout from "@settings/components/DefaultLayout"
 
 // Pages
-import Home from "@settings/pages/Home"
-import About from "@settings/pages/About"
+import Settings from "@settings/pages/Settings"
+import Import from "@settings/pages/Import"
 import NotFound from "@settings/pages/NotFound"
 
 
@@ -16,11 +16,11 @@ const router = createHashRouter([
         children: [
             {
                 index: true,
-                element: <Home />,
+                element: <Settings />,
             },
             {
-                path: 'about',
-                element: <About />,
+                path: 'import',
+                element: <Import />,
             },
             {
               path: '*',

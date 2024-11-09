@@ -1,0 +1,30 @@
+.fo-admin-header {
+  background-color: #FFFFFF;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #E0E0E0;
+  margin-bottom: 2rem;
+}
+
+.fo-tabs {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid #E0E0E0;
+
+  &__item {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    color: #4A5056;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #2E7D32;
+    }
+
+    &_active {
+      color: #2E7D32;
+      border-bottom-color: #2E7D32;
+    }
+  }
+}

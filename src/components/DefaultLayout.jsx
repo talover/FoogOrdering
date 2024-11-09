@@ -1,63 +1,68 @@
 import { Outlet } from "react-router-dom"
-import Navigation from "@settings/components/Navigation"
+import { Navigation } from "@settings/components/Navigation"
+import NavigationOld from "@settings/components/NavigationOld"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useGetSettingsQuery } from "@settings/services/Settings"
 // import { setUser, destroyCredentials } from "@settings/store/slices/auth/authSlice"
 import FlashMessages from "./FlashMessages"
 
+const navigationData = [
+	{ name: 'Settings', path: '/', label: 'Settings' },
+	{ name: 'Import', path: '/import', label: 'Import' },
+  ];
+
 const DefaultLayout = () => {
 
-    const dispatch = useDispatch()
-    const token = useSelector( state => state.auth.token )
+	const dispatch = useDispatch()
+	const token = useSelector( state => state.auth.token )
 
-    const {
-        data,
-        isLoading,
-        isSuccess,
-        isError
-    } = useGetSettingsQuery( null, {
-        skip: ! token
-    } )
+	const {
+		data,
+		isLoading,
+		isSuccess,
+		isError
+	} = useGetSettingsQuery( null, {
+		skip: ! token
+	} )
 
-    console.log(data, isLoading, isSuccess, isError);
+	console.log(data, isLoading, isSuccess, isError);
 
-    const getUserData = () => {
+	const getUserData = () => {
 
-        if( ! token ) return
+		if( ! token ) return
 
-        if( ! isLoading ) {
+		if( ! isLoading ) {
 
-            if( isSuccess ) dispatch( setUser( data ) )
+			if( isSuccess ) dispatch( setUser( data ) )
 
-            if( isError ) dispatch( destroyCredentials() )
+			if( isError ) dispatch( destroyCredentials() )
 
-        }
+		}
+	}
 
-    }
+	useEffect( () => {
 
-    useEffect( () => {
+		getUserData()
 
-        getUserData()
+	}, [isLoading] )
+	
+	return ( ! isLoading &&
+		<>
+			<Navigation navigation={navigationData} />
+			<NavigationOld />
 
-    }, [isLoading] )
-    
-    return ( ! isLoading &&
-        <>
-            <Navigation />
+			<main>
+				<div>
 
-            <main>
-                <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+					<Outlet />
 
-                    <Outlet />
+				</div>
+			</main>
 
-                </div>
-            </main>
-
-            <FlashMessages />
-
-        </>        
-    )
+			<FlashMessages />
+		</>        
+	)
 }
 
 export default DefaultLayout

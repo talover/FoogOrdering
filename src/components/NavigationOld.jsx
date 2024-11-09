@@ -9,8 +9,8 @@ const _user = {
         '/user.png',
 }
 const navigation = [
-    { name: 'Home', path: '/', label: 'Home' },
-    { name: 'About', path: '/about', label: 'About' },
+    { name: 'Settings', path: '/', label: 'Settings' },
+    { name: 'Import', path: '/import', label: 'Import' },
 ]
 
 function classNames(...classes) {

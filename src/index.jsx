@@ -4,7 +4,7 @@ import { RouterProvider } from "react-router-dom"
 import router from "@settings/router"
 import store from "@settings/store"
 import { Provider } from "react-redux"
-import "@settings/assets/css/main.css"
+import "@settings/assets/css/main.scss"
 
 // Function to render React components
 const renderSettingsPage = () => {
