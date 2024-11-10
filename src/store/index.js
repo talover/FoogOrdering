@@ -1,17 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit"
 import API from "@settings/services/API"
-import authReducer from "@settings/store/slices/auth/authSlice"
+import settingsSliceReducer from "@settings/store/slices/settings/settingsSlice"
 import notifySliceReducer from "@settings/store/slices/notify/notifySlice"
-import verifySliceReducer from "@settings/store/slices/system/verifySlice"
 
 const store = configureStore( {
     reducer: {
         [API.reducerPath]: API.reducer,
-        auth: authReducer,
+        settings: settingsSliceReducer,
         notify: notifySliceReducer,
-        "system/verify": verifySliceReducer
     },
-    middleware: getDefaultMiddleware => getDefaultMiddleware().concat( API.middleware ),
     devTools: true
 } )
 

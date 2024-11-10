@@ -5,27 +5,44 @@ import { MainTitle } from "@settings/components/typography/MainTitle";
 import { FormField } from "@settings/components/form/FormField";
 import { FormActions } from "@settings/components/form/FormActions";
 import { Button } from "@settings/components/Button";
+import { useDispatch, useSelector } from "react-redux"
+import { setSetting } from "@settings/store/slices/settings/settingsSlice"
+import { useSetSettingsMutation, useGetSettingsQuery } from "@settings/services/Settings"
 
 const Settings = () => {
+
+	// const defaultFields = useGetSettingsQuery()
+
 	const [formData, setFormData] = useState({
 		menuSlug: '',
-		menuSlugTestError: 'error',
 		addOnsSlug: '',
 		description: '',
 		defaultPrice: '',
 		location: ''
 	});
 
+	const dispatch = useDispatch()
+	const fields = useSelector( state => state.settings.fields )
+
+	// useEffect(() => {
+	// 	console.log(defaultFields.data);
+	// }, [defaultFields.loading]);
+
+	// loading simulation
 	useEffect(() => {
-		const savedData = localStorage.getItem("settingsFormData");
-		if (savedData) {
-			setFormData(JSON.parse(savedData));
-		}
+		setFormData((prevData) => ({
+			...prevData,
+			menuSlug: 'our-menu-items',
+			addOnsSlug: 'the-best-addons',
+			description: 'Some great description!',
+			defaultPrice: '2.50',
+			location: 'location2'
+		}));
 	}, []);
 
-
 	useEffect(() => {
-		localStorage.setItem("settingsFormData", JSON.stringify(formData));
+
+		dispatch( setSetting( { data: formData } ) )
 	}, [formData]);
 
 	const handleChange = (e) => {
@@ -36,10 +53,19 @@ const Settings = () => {
 		}));
 	};
 
-	const handleSubmit = (e) => {
+	// const [setSettings, { isLoading, isError }] = useSetSettingsMutation()
+
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log('Submitted data:', formData);
-	};
+
+		console.log('Save data: ', fields);
+
+		// try {
+		// 	await setSettings({ settings: fields }).unwrap()
+		// } catch (error) {
+		// 	console.log(error)
+		// }
+	}
 
 	return (
 		<Container>
@@ -53,15 +79,6 @@ const Settings = () => {
 						placeholder="Enter menu items slug"
 						description="Define the URL slug for menu items section"
 						value={formData.menuSlug}
-						onChange={handleChange}
-					/>
-
-					<FormField
-						label="Menu Items Slug"
-						name="menuSlugTestError"
-						placeholder="Enter menu items slug"
-						description="Define the URL slug for menu items section"
-						value={formData.menuSlugTestError}
 						onChange={handleChange}
 						error={!formData.menuSlug && "This field is required"}
 					/>

@@ -1,9 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    settings: [
-        {menu_slug: 'test'},
-    ],
+    fields: {
+        menuSlug: '',
+        addOnsSlug: '',
+        description: '',
+        defaultPrice: '',
+        location: '',
+    }
 }
 
 const settingsSlice = createSlice( {
@@ -15,7 +19,8 @@ const settingsSlice = createSlice( {
             if( ! action.payload ) return
             
             const { data } = action.payload
-            state.settings = data
+
+            state.fields = data
         },
     },
 } )

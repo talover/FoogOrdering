@@ -3,13 +3,13 @@ import API from "@settings/services/API"
 const Settings = API.injectEndpoints( {
 
     endpoints: builder => ( {
-        // resetPassword: builder.mutation( {
-        //     query: credentials => ( {
-        //         url: '/reset-password',
-        //         method: 'POST',
-        //         body: { ...credentials }
-        //     } )
-        // } ),        
+        setSettings: builder.mutation( {
+            query: settings => ( {
+                url: '/save-settings',
+                method: 'POST',
+                body: { ...settings }
+            } )
+        } ),        
         getSettings: builder.query( {
             query: () => 'your-plugin/v1/settings',
         } ),
@@ -20,5 +20,6 @@ const Settings = API.injectEndpoints( {
 export default Settings
 
 export const {
+    useSetSettingsMutation,
     useGetSettingsQuery
  } = Settings
