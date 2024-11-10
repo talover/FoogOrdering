@@ -19,8 +19,7 @@ const settingsSlice = createSlice( {
             if( ! action.payload ) return
             
             const { data } = action.payload
-
-            state.fields = data
+            state.settings = data
         },
     },
 } )
