@@ -1,36 +1,207 @@
 :root {
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Primary Colors */
+  --primary-50: #f0f9ff;
 }
 
-*,
-:after,
-:before {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  -webkit-tap-highlight-color: transparent;
+.olena-food-ordering-wrapper {
+  & p {
+    font-size: 16px;
+  }
+
+  & input[type=text],
+  & input[type=number],
+  & textarea,
+  & select {
+    width: 100%;
+    padding: 0.45rem 0.8rem;
+    border: 2px solid #E0E0E0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    outline: transparent;
+    max-width: 100%;
+  }
+
+  /* Container */
+  & .container {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 2rem;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+/* BaseCard */
+.fo-base-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
 }
 
+/* Buttons */
+.fo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid;
+  line-height: 1;
 
-body {
-  margin: 0;
-  padding: 0;
+  &_primary {
+    background-color: #2E7D32;
+    border-color: #2E7D32;
+    color: #FFFFFF;
+
+    &:hover {
+      background-color: #1B5E20;
+      border-color: #1B5E20;
+    }
+  }
 }
 
-body {
-  min-width: 320px;
-  margin: 0;
-  font-size: 16px;
-  font-family: var(--font-family);
-  line-height: 1.5;
-  background-color: #F5F7F9;
+/* FormActions */
+.fo-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 10px;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #E0E0E0;
+}
+
+/* FormActions */
+.fo-field {
+  $self: &;
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  &__label {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #E0E0E0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    outline: transparent;
+
+    &:focus {
+      border-color: #2E7D32;
+    }
+  }
+
+  &__select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #E0E0E0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234A5056' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    outline: transparent;
+
+    &:focus {
+      border-color: #2E7D32 !important;
+      outline: none;
+    }
+  }
+
+  &__desc {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+  }
+
+  &_error {
+
+    #{$self}__input,
+    #{$self}__select,
+    #{$self}__textarea {
+      border-color: #e53e3e;
+    }
+
+    #{$self}__error {
+      color: #e53e3e;
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+  }
+}
+
+/* Navigation */
+.fo-admin-header {
+  background-color: #FFFFFF;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #E0E0E0;
+  margin-bottom: 2rem;
+}
+
+.fo-tabs {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid #E0E0E0;
+
+  &__item {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    color: #4A5056;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #2E7D32;
+    }
+
+    &_active {
+      color: #2E7D32;
+      border-bottom-color: #2E7D32;
+    }
+  }
+}
+
+/* Description */
+.fo-description {
+  font-size: 0.95rem;
+  color: #4A5056;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  line-height: 1.6;
+
+  p {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* MainTitle */
+.fo-main-title {
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
   color: #1A2024;
-}
-
-button,
-input {
-  font-family: var(--font-family);
+  font-weight: bold;
 }
