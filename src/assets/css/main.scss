@@ -1,6 +1,10 @@
 :root {
-  /* Primary Colors */
-  --primary-50: #f0f9ff;
+  --olena-food-ordering-color-1: var(--olena-fo-color-1, #E0E0E0);
+  --olena-food-ordering-color-2: var(--olena-fo-color-2, #FFFFFF);
+  --olena-food-ordering-color-3: var(--olena-fo-color-3, #6b7280);  
+  --olena-food-ordering-color-4: var(--olena-fo-color-4, #2E7D32);
+  --olena-food-ordering-color-5: var(--olena-fo-color-5, #e53e3e);
+  --olena-food-ordering-color-6: var(--olena-fo-color-6, #1A2024);
 }
 
 .olena-food-ordering-wrapper {
@@ -14,7 +18,7 @@
   & select {
     width: 100%;
     padding: 0.45rem 0.8rem;
-    border: 2px solid #E0E0E0;
+    border: 2px solid var(--olena-food-ordering-color-1);
     border-radius: 6px;
     font-size: 0.95rem;
     transition: all 0.3s ease;
@@ -32,7 +36,7 @@
 
 /* BaseCard */
 .fo-base-card {
-  background-color: #FFFFFF;
+  background-color: var(--olena-food-ordering-color-2);
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   padding: 2rem;
@@ -54,9 +58,9 @@
   line-height: 1;
 
   &_primary {
-    background-color: #2E7D32;
-    border-color: #2E7D32;
-    color: #FFFFFF;
+    background-color: var(--olena-food-ordering-color-4);
+    border-color: var(--olena-food-ordering-color-4);
+    color: var(--olena-food-ordering-color-2);
 
     &:hover {
       background-color: #1B5E20;
@@ -73,7 +77,7 @@
   column-gap: 10px;
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid #E0E0E0;
+  border-top: 1px solid var(--olena-food-ordering-color-1);
 }
 
 /* FormActions */
@@ -94,24 +98,24 @@
   &__textarea {
     width: 100%;
     padding: 0.75rem;
-    border: 2px solid #E0E0E0;
+    border: 2px solid var(--olena-food-ordering-color-1);
     border-radius: 6px;
     font-size: 0.95rem;
     transition: all 0.3s ease;
     outline: transparent;
 
     &:focus {
-      border-color: #2E7D32;
+      border-color: var(--olena-food-ordering-color-4);
     }
   }
 
   &__select {
     width: 100%;
     padding: 0.75rem;
-    border: 2px solid #E0E0E0;
+    border: 2px solid var(--olena-food-ordering-color-1);
     border-radius: 6px;
     font-size: 0.95rem;
-    background-color: #FFFFFF;
+    background-color: var(--olena-food-ordering-color-2);
     cursor: pointer;
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234A5056' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
@@ -120,14 +124,14 @@
     outline: transparent;
 
     &:focus {
-      border-color: #2E7D32 !important;
+      border-color: var(--olena-food-ordering-color-4) !important;
       outline: none;
     }
   }
 
   &__desc {
     font-size: 0.85rem;
-    color: #6b7280;
+    color: var(--olena-food-ordering-color-3);
     margin-top: 0.25rem;
   }
 
@@ -136,11 +140,11 @@
     #{$self}__input,
     #{$self}__select,
     #{$self}__textarea {
-      border-color: #e53e3e;
+      border-color: var(--olena-food-ordering-color-5);
     }
 
     #{$self}__error {
-      color: #e53e3e;
+      color: var(--olena-food-ordering-color-5);
       font-size: 0.85rem;
       margin-top: 0.25rem;
     }
@@ -149,16 +153,16 @@
 
 /* Navigation */
 .fo-admin-header {
-  background-color: #FFFFFF;
+  background-color: var(--olena-food-ordering-color-2);
   padding: 1rem 2rem;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid var(--olena-food-ordering-color-1);
   margin-bottom: 2rem;
 }
 
 .fo-tabs {
   display: flex;
   gap: 1rem;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid var(--olena-food-ordering-color-1);
 
   &__item {
     padding: 1rem 1.5rem;
@@ -169,12 +173,12 @@
     transition: all 0.3s ease;
 
     &:hover {
-      color: #2E7D32;
+      color: var(--olena-food-ordering-color-4);
     }
 
     &_active {
-      color: #2E7D32;
-      border-bottom-color: #2E7D32;
+      color: var(--olena-food-ordering-color-4);
+      border-bottom-color: var(--olena-food-ordering-color-4);
     }
   }
 }
@@ -202,6 +206,6 @@
 .fo-main-title {
   font-size: 1.5rem;
   margin: 0 0 1rem;
-  color: #1A2024;
+  color: var(--olena-food-ordering-color-6);
   font-weight: bold;
 }
